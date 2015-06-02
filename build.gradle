@@ -1,0 +1,16 @@
+
+apply plugin: 'java'
+apply plugin: 'java-gradle-plugin'
+
+group = 'com.glonk.gradle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+}
+
+

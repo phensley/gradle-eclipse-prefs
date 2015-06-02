@@ -1,0 +1,27 @@
+
+buildscript {
+  dependencies {
+    classpath files("../build/classes/main", "../build/resources/main")
+  }
+}
+
+apply plugin: 'com.glonk.eclipse-prefs'
+
+allprojects {
+
+  apply plugin: 'java'
+  apply plugin: 'eclipse'
+
+  // modify eclipse preferences files for each project
+  eclipsePrefs {
+    group("org.eclipse.jdt.ui.prefs") {
+      // configure to trim trailing whitespace on save
+      set "editor_save_participant_org.eclipse.jdt.ui.postsavelistener.cleanup", true
+      set "sp_cleanup.remove_trailing_whitespaces", false
+      set "sp_cleanup.remove_trailing_whitespaces_all", false
+      set "sp_cleanup.remove_trailing_whitespaces_ignore_empty", false
+      set "sp_cleanup.on_save_use_additional_actions", true
+    }
+  }
+}
+
