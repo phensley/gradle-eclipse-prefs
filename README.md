@@ -2,6 +2,8 @@
 gradle-eclipse-prefs
 --------------------
 
+WARNING: This is a work-in-progress. Version 1.0.0 will indicate its ready to use.
+
 Eclipse preferences settings for Gradle projects.
 
 ```
