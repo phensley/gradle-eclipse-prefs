@@ -11,7 +11,7 @@ allprojects {
     eclipsePrefs {
         group("org.eclipse.jdt.ui.prefs") {
             set "editor_save_participant_org.eclipse.jdt.ui.postsavelistener.cleanup", true
-            set ""sp_cleanup.remove_trailing_whitespaces", true
+            set "sp_cleanup.remove_trailing_whitespaces", true
         }
     }
 }
