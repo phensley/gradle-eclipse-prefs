@@ -3,4 +3,3 @@ dependencies {
   compile project(':consumer-foo')
 }
 
-

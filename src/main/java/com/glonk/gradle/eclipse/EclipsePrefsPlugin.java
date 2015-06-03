@@ -17,19 +17,15 @@ public class EclipsePrefsPlugin implements Plugin<Project> {
   @Override
   public void apply(Project project) {
     
-    // Depend on the "eclipse" plugin
     project.apply(dependencies());
-    
-    // Hook our preference builder task in after "eclipse" runs
-    Task task = project.getTasks().findByName(ECLIPSE_TASK);
-    task.doLast(new EclipsePrefsAction());
-    
-// TODO get subproject tasks working
-//    EclipsePrefsTask prefsTask = project.getTasks().create(PREFS_EXTENSION, EclipsePrefsTask.class);
-//    prefsTask.mustRunAfter(task);
-//    prefsTask.dependsOn(task);
+    project.getExtensions().create(PREFS_EXTENSION, EclipsePrefs.class);  
 
-    project.getExtensions().create(PREFS_EXTENSION, EclipsePrefs.class);
+    EclipsePrefsAction action = new EclipsePrefsAction();
+    Task eclipseTask = project.getTasks().findByName(ECLIPSE_TASK);
+    
+    if (eclipseTask != null) {
+      eclipseTask.doLast(action);
+    }
   }
 
   private static Map<String, ?> dependencies() {
